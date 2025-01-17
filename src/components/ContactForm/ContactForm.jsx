@@ -1,43 +1,68 @@
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
-import PropTypes from 'prop-types';
-import styles from './ContactForm.module.css';
-import { nanoid } from 'nanoid';
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import { nanoid } from 'nanoid'
+import { useId } from "react";
+import * as Yup from "yup";
 
-const ContactForm = ({ onSubmit }) => {
-  const formik = useFormik({
-    initialValues: { name: '', number: '' },
-    validationSchema: Yup.object({
-      name: Yup.string().min(3).max(50).required('Required'),
-      number: Yup.string().min(3).max(50).required('Required'),
-    }),
-    onSubmit: (values, { resetForm }) => {
-      onSubmit({ id: nanoid(), ...values });
-      resetForm();
-    },
-  });
+import s from './ContactForm.module.css';
 
-  return (
-    <form onSubmit={formik.handleSubmit} className={styles.form}>
-      <label className={styles.label}>
-        Name
-        <input type="text" {...formik.getFieldProps('name')} className={styles.input} />
-      </label>
-      {formik.touched.name && formik.errors.name ? <div className={styles.error}>{formik.errors.name}</div> : null}
-      
-      <label className={styles.label}>
-        Number
-        <input type="text" {...formik.getFieldProps('number')} className={styles.input} />
-      </label>
-      {formik.touched.number && formik.errors.number ? <div className={styles.error}>{formik.errors.number}</div> : null}
+const ContactFormSchema = Yup.object().shape({
+    name: Yup.string().min(3, "Too short!").max(50, "Too long!").required("Required"),
+    number: Yup.string().min(3, "Too short!").max(50, "Too long!").required("Required")
+});
 
-      <button type="submit" className={styles.button}>Add Contact</button>
-    </form>
-  );
+const initialValues = {
+    id: "",
+    name: "",
+    number: "",
 };
 
-ContactForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};
 
-export default ContactForm;
+
+const ContactForm = ({ onAdd }) => {
+
+
+
+    const nameFieldId = useId();
+    const numberFieldId = useId();
+
+    const handleSubmit = (values, action) => {
+
+
+        onAdd({
+            id: nanoid(),
+            name: values.name,
+            number: values.number,
+
+        });
+
+        action.resetForm();
+    };
+
+    return (
+        <Formik initialValues={initialValues} onSubmit={handleSubmit}
+            validationSchema={ContactFormSchema}>
+            <Form className={s.form}>
+                <div className={s.name_container}>
+                    <label className={s.name} htmlFor={nameFieldId}>Name</label>
+                    <Field className={s.input} type="text" name="name" id={nameFieldId} />
+                    <ErrorMessage className={s.error} name="name" component="span" />
+                </div>
+
+                <div className={s.name_container}>
+                    <label className={s.name} htmlFor={numberFieldId}>Number</label>
+                    <Field className={s.input} type="text" name="number" id={numberFieldId} />
+                    <ErrorMessage className={s.error} name="number" component="span" />
+                </div>
+
+                <button className={s.btn} type="submit">Add contact</button>
+            </Form >
+
+
+
+        </Formik>
+
+    )
+
+}
+
+export default ContactForm
