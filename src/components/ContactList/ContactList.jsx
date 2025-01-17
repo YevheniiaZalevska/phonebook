@@ -1,24 +1,20 @@
-import PropTypes from 'prop-types';
-import Contact from '../Contact/Contact';
-import styles from './ContactList.module.css';
+import Contact from '../Contact/Contact'
+import s from './ContactList.module.css'
 
-const ContactList = ({ contacts, onDelete }) => (
-  <ul className={styles.list}>
-    {contacts.map(({ id, name, number }) => (
-      <Contact key={id} id={id} name={name} number={number} onDelete={onDelete} />
-    ))}
-  </ul>
-);
+const ContactList = ({ numbers, onDelete }) => {
 
-ContactList.propTypes = {
-  contacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-  onDelete: PropTypes.func.isRequired,
-};
+    return (
+        <>
+            <ul>
+                {numbers.map((number) => (
+                    <li className={s.list} key={number.id}>
+                        <Contact data={number} onDelete={onDelete} />
+                    </li>
+                ))}
+            </ul>
+        </>
+    )
 
-export default ContactList;
+}
+
+export default ContactList
