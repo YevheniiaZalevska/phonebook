@@ -1,16 +1,17 @@
-import PropTypes from 'prop-types';
-import styles from './SearchBox.module.css';
+import s from './SearchBox.module.css'
 
-const SearchBox = ({ value, onChange }) => (
-  <label className={styles.label}>
-    Find contacts by name
-    <input type="text" value={value} onChange={onChange} className={styles.input} />
-  </label>
-);
+const SearchBox = ({ value, onSearch }) => {
+    return (
+        <div className={s.box}>
+            <p>Find contacts by name</p>
+            <input className={s.input}
+                type="text"
+                value={value}
+                onChange={e => onSearch(e.target.value)}
+            />
+        </div>
+    )
 
-SearchBox.propTypes = {
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-};
+}
 
-export default SearchBox;
+export default SearchBox
