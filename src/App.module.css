@@ -1,17 +1,8 @@
-.container {
-  text-align: center;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-  color: #333;
+.contanier {
+  margin: 30px;
+
 }
 
-h1 {
-  font-size: 24px;
-  color: #333;
-}
-
-.subtitle {
-  font-size: 20px;
-  color: #555;
-  margin-bottom: 16px;
+.title {
+  margin-bottom: 20px;
 }
