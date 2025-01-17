@@ -1,18 +1,22 @@
-import PropTypes from 'prop-types';
-import styles from './Contact.module.css';
+import { FaUser } from "react-icons/fa6";
+import { FaPhone } from "react-icons/fa6";
+import s from './Contact.module.css'
 
-const Contact = ({ id, name, number, onDelete }) => (
-  <li className={styles.contactItem}>
-    <p className={styles.contactText}>{name}: {number}</p>
-    <button onClick={() => onDelete(id)} className={styles.deleteButton}>Delete</button>
-  </li>
-);
 
-Contact.propTypes = {
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired,
-  onDelete: PropTypes.func.isRequired,
-};
+const Contact = ({ data: { id, name, number }, onDelete }) => {
 
-export default Contact;
+    return (
+        <div className={s.card}>
+            <div>
+                <p><FaUser className={s.text} size="18px" />{name}</p>
+                <p><FaPhone className={s.text} size="20px" />{number}</p>
+            </div>
+            <button className={s.btn} onClick={() => onDelete(id)}>Delete</button>
+
+        </div>
+    );
+
+
+}
+
+export default Contact

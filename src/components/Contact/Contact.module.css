@@ -1,22 +1,19 @@
-.contactItem {
+.text {
+    padding-right: 5px;
+}
+
+.card {
     display: flex;
     justify-content: space-between;
-    padding: 8px;
-    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    align-items: center;
 }
 
-.contactText {
-    margin: 0;
+p {
+    display: flex;
+    align-items: center;
 }
 
-.deleteButton {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    padding: 4px 8px;
-    cursor: pointer;
-}
-
-.deleteButton:hover {
-    background-color: #d32f2f;
+.btn {
+    height: 30px;
 }
