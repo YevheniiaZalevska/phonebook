@@ -1,5 +1,4 @@
 import s from './App.module.css'
-import contacts from './contacts.json'
 import ContactForm from "./components/ContactForm/ContactForm"
 import SearchBox from "./components/SearchBox/SearchBox"
 import ContactList from "./components/ContactList/ContactList"
@@ -14,7 +13,6 @@ const App = () => {
     if (savedContact !== null) {
       return JSON.parse(savedContact);
     }
-    return contacts;
   });
 
 
