@@ -6,10 +6,7 @@ ul {
     gap: 10px;
     flex-wrap: wrap;
     gap: 20px;
-}
-
-.list {
-    border: 1px solid black;
     border-radius: 2px;
     width: 280px;
 }
+
