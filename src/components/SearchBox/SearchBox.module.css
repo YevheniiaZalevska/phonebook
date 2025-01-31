@@ -1,14 +1,26 @@
 .input {
+    border: 1px solid rgb(199, 196, 37);
     width: 300px;
-    border: 1px solid black;
-    border-radius: 2px;
+    height: 100%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    margin-top: 5px;
 }
 
 .input:hover,
 :focus {
-    border-color: blue;
+    outline: none;
+    border-color: #98f88d;
 }
 
-.box {
-    margin-bottom: 20px;
+.label {
+    font-size: 1rem;
+    color: rgb(112, 110, 223);
 }
