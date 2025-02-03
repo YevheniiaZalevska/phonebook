@@ -1,9 +1,8 @@
-import { useDispatch, useSelector } from 'react-redux'
-import { deleteContact } from '../../redux/contactsSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteContact } from '../../redux/contactsOps'; // Импорт из contactsOps
 import { FaUser, FaPhoneAlt } from 'react-icons/fa';
-import s from './Contact.module.css'
-import { selectDeletingIds } from '../../redux/selectors'
-
+import s from './Contact.module.css';
+import { selectDeletingIds } from '../../redux/selectors';
 
 const Contact = ({ id, name, number }) => {
   const dispatch = useDispatch();
@@ -12,7 +11,7 @@ const Contact = ({ id, name, number }) => {
 
   const handleDelete = () => {
     if (!isDeleting) {
-      dispatch(deleteContact(id));
+      dispatch(deleteContact(id)); // Асинхронный экшен
     }
   };
 
@@ -34,10 +33,10 @@ const Contact = ({ id, name, number }) => {
       </div>
       <button
         className={s.deleteBtn}
-          onClick={handleDelete}
+        onClick={handleDelete}
         disabled={isDeleting}
       >
-        {isDeleting ? 'Deleting...' : 'Delete'}{' '}
+        {isDeleting ? 'Deleting...' : 'Delete'}
       </button>
     </li>
   );
