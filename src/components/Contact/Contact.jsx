@@ -1,11 +1,20 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux'
 import { deleteContact } from '../../redux/contactsSlice';
 import { FaUser, FaPhoneAlt } from 'react-icons/fa';
 import s from './Contact.module.css'
+import { selectDeletingIds } from '../../redux/selectors'
 
 
 const Contact = ({ id, name, number }) => {
   const dispatch = useDispatch();
+  const deletingIds = useSelector(selectDeletingIds);
+  const isDeleting = deletingIds.includes(id);
+
+  const handleDelete = () => {
+    if (!isDeleting) {
+      dispatch(deleteContact(id));
+    }
+  };
 
   return (
     <li className={s.item}>
@@ -25,9 +34,10 @@ const Contact = ({ id, name, number }) => {
       </div>
       <button
         className={s.deleteBtn}
-        onClick={() => dispatch(deleteContact(id))}
+          onClick={handleDelete}
+        disabled={isDeleting}
       >
-        Delete
+        {isDeleting ? 'Deleting...' : 'Delete'}{' '}
       </button>
     </li>
   );
