@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
@@ -6,6 +7,7 @@ import { Link } from 'react-router-dom';
 
 import { register } from '../../redux/auth/operations';
 
+import { FaEye, FaEyeSlash } from 'react-icons/fa'; 
 import s from './RegistrationForm.module.css';
 
 const registrationSchema = Yup.object().shape({
@@ -16,6 +18,7 @@ const registrationSchema = Yup.object().shape({
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (values, { resetForm }) => {
     dispatch(register(values));
@@ -36,17 +39,27 @@ const RegistrationForm = () => {
         </label>
         <label className={s.label}>
           Email:
-          <Field className={s.input} type="email" name="email" autoComplete="email"/>
+          <Field className={s.input} type="email" name="email" autoComplete="email" />
           <ErrorMessage className={s.error} name="email" component="div" />
         </label>
         <label className={s.label}>
           Password:
-          <Field className={s.input} type="password" name="password" autoComplete="current-password"/>
-          <ErrorMessage
-            className={s.error}
-            name="password"
-            component="div"
-          />
+          <div className={s.passwordWrapper}>
+            <Field
+              className={s.input}
+              type={showPassword ? 'text' : 'password'}
+              name="password"
+              autoComplete="current-password"
+            />
+            <button
+              type="button"
+              className={s.togglePassword}
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </button>
+          </div>
+          <ErrorMessage className={s.error} name="password" component="div" />
         </label>
         <button className={s.button} type="submit">
           Register
