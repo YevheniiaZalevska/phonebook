@@ -1,0 +1,40 @@
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1,
+h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.loader,
+.error {
+    text-align: center;
+    font-size: 16px;
+    color: #555;
+}
+
+.loader {
+    color: #3498db;
+}
+
+.error {
+    color: #e74c3c;
+}
