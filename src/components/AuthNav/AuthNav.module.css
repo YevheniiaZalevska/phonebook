@@ -1,19 +1,31 @@
 .authButton {
     display: inline-block;
-    padding: 5px 10px;
-    margin: 5px;
-    text-align: center;
+    padding: 8px 15px;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 16px;
     font-weight: bold;
     color: white;
-    background-color: #007bff;
+    background-color: #3498db;
     border-radius: 5px;
-    text-decoration: none;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
 
 .authButton:hover {
-    background-color: #0056b3;
+    background-color: #2980b9;
+    transform: scale(1.05);
 }
 
 .authButton:active {
-    background-color: #004085;
+    background-color: #1f618d;
+    transform: scale(0.98);
+}
+
+@media (max-width: 768px) {
+    .authButton {
+        display: block;
+        text-align: center;
+        margin: 5px auto;
+        width: 90%;
+    }
 }
