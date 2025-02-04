@@ -1,10 +1,11 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from '../../redux/contactsOps';
-import { selectContacts } from '../../redux/selectors';
-import { selectError } from '../../redux/contactsSlice';
-import s from './ContactForm.module.css';
+
+import { addContact } from '../../redux/contacts/operations';
+import { selectContacts, selectError } from '../../redux/contacts/selectors';
+
+import styles from './ContactForm.module.css';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
@@ -43,42 +44,41 @@ const ContactForm = () => {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit} className={s.form}>
-      <label htmlFor="name" className={s.label}>
+    <form onSubmit={formik.handleSubmit} className={styles.form}>
+      <label htmlFor="name" className={styles.label}>
         Name
       </label>
       <input
         id="name"
         name="name"
         type="text"
-        className={s.input}
+        className={styles.input}
         value={formik.values.name}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
         autoComplete="name"
       />
       {formik.touched.name && formik.errors.name ? (
-        <div className={s.error}>{formik.errors.name}</div>
+        <div className={styles.error}>{formik.errors.name}</div>
       ) : null}
-
-      <label htmlFor="number" className={s.label}>
+      <label htmlFor="number" className={styles.label}>
         Number
       </label>
       <input
         id="number"
         name="number"
         type="text"
-        className={s.input}
+        className={styles.input}
         value={formik.values.number}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
         autoComplete="tel"
       />
       {formik.touched.number && formik.errors.number ? (
-        <div className={s.error}>{formik.errors.number}</div>
+        <div className={styles.error}>{formik.errors.number}</div>
       ) : null}
-       {error && <div className={s.error}>Error: {error}</div>}{' '}
-      <button type="submit" className={s.submitBtn}>
+      {error && <div className={styles.error}>Error: {error}</div>}{' '}
+      <button type="submit" className={styles.submitBtn}>
         Add Contact
       </button>
     </form>
