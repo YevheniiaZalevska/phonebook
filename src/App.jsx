@@ -1,36 +1,76 @@
-import s from './App.module.css'
-import ContactForm from "./components/ContactForm/ContactForm"
-import SearchBox from "./components/SearchBox/SearchBox"
-import ContactList from "./components/ContactList/ContactList"
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchContacts } from './redux/contactsOps'
-import { selectIsLoading, selectError } from './redux/contactsSlice'
+import { useEffect, useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Toaster } from 'react-hot-toast'; 
+
+import { refreshUser } from './redux/auth/operations';
+import { selectIsRefreshing, selectIsLoggedIn } from './redux/auth/selectors';
+
+import Layout from './components/Layout/Layout';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import RestrictedRoute from './components/RestrictedRoute/RestrictedRoute';
+
+import HomePage from './pages/HomePage';
+import RegistrationPage from './pages/RegistrationPage';
+import LoginPage from './pages/LoginPage';
+import ContactsPage from './pages/ContactsPage';
 
 const App = () => {
   const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
+  const isRefreshing = useSelector(selectIsRefreshing);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const [isAppReady, setIsAppReady] = useState(false);
 
   useEffect(() => {
-  dispatch(fetchContacts());
+    dispatch(refreshUser());
   }, [dispatch]);
 
-  return (
-    <div className={s.contanier}>
-      <h1 className={s.title}>Phonebook</h1>
-      <ContactForm />
-      <h2 className={s.contacts}>Contacts</h2>
-      <SearchBox />
-      {isLoading ? (
-        <p>Loading... Please wait a little</p>
-      ) : error ? (
-        <p>Error: {error}</p>
-      ) : (
-        <ContactList />
-      )}
-    </div>
-  )
-}
+  useEffect(() => {
+    if (!isRefreshing && isLoggedIn !== null) {
+      setIsAppReady(true);
+    }
+  }, [isRefreshing, isLoggedIn]);
 
-export default App
+  if (!isAppReady) {
+    return null;
+  }
+
+  return isRefreshing ? null : (
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route
+            path="register"
+            element={
+              <RestrictedRoute>
+                <RegistrationPage />
+              </RestrictedRoute>
+            }
+          />
+          <Route
+            path="login"
+            element={
+              <RestrictedRoute>
+                <LoginPage />
+              </RestrictedRoute>
+            }
+          />
+          <Route
+            path="contacts"
+            element={
+              <PrivateRoute>
+                <ContactsPage />
+              </PrivateRoute>
+            }
+          />
+        </Route>
+        <Route path="*" element="Not Found Such Page" />
+      </Routes>
+
+      <Toaster position="top-center" />
+    </>
+  );
+};
+
+export default App;
