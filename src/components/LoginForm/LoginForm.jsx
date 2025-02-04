@@ -1,11 +1,13 @@
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
 import { login } from '../../redux/auth/operations';
 import { Link } from 'react-router-dom';
-import { toast } from 'react-hot-toast'; 
+import { toast } from 'react-hot-toast';
 
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import s from './LoginForm.module.css';
 
 const loginSchema = Yup.object().shape({
@@ -15,6 +17,7 @@ const loginSchema = Yup.object().shape({
 
 const LoginForm = () => {
   const dispatch = useDispatch();
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (values, { resetForm }) => {
     dispatch(login(values)).catch(() => {
@@ -32,18 +35,30 @@ const LoginForm = () => {
       <Form className={s.form}>
         <label className={s.label}>
           Email:
-          <Field className={s.input} type="email" name="email" autoComplete="email"/>
+          <Field className={s.input} type="email" name="email" autoComplete="email" />
           <ErrorMessage className={s.error} name="email" component="div" />
         </label>
+
         <label className={s.label}>
           Password:
-          <Field className={s.input} type="password" name="password" autoComplete="current-password"/>
-          <ErrorMessage
-            className={s.error}
-            name="password"
-            component="div"
-          />
+          <div className={s.passwordWrapper}>
+            <Field
+              className={s.input}
+              type={showPassword ? 'text' : 'password'}
+              name="password"
+              autoComplete="current-password"
+            />
+            <button
+              type="button"
+              className={s.togglePassword}
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </button>
+          </div>
+          <ErrorMessage className={s.error} name="password" component="div" />
         </label>
+
         <button className={s.button} type="submit">
           Log In
         </button>
