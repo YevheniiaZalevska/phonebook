@@ -5,12 +5,14 @@ import {
   selectIsRefreshing,
 } from '../../redux/auth/selectors';
 
+import s from './PrivateRoute.module.css';
+
 const PrivateRoute = ({ children }) => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const isRefreshing = useSelector(selectIsRefreshing);
 
   if (isRefreshing) {
-    return null;
+    return <div className={s.loader}>Loading...</div>;
   }
 
   return isLoggedIn ? children : <Navigate to="/login" />;
