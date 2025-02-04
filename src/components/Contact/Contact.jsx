@@ -1,8 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContact } from '../../redux/contacts/slice'; // Импортируем из контактов
+
+import { selectDeletingIds } from '../../redux/contacts/selectors';
+import { deleteContact } from '../../redux/contacts/operations';
+
 import { FaUser, FaPhoneAlt } from 'react-icons/fa';
 import s from './Contact.module.css';
-import { selectDeletingIds } from '../../redux/contacts/selectors'; // Убедитесь, что путь верный
 
 const Contact = ({ id, name, number }) => {
   const dispatch = useDispatch();
@@ -36,7 +38,7 @@ const Contact = ({ id, name, number }) => {
         onClick={handleDelete}
         disabled={isDeleting}
       >
-        {isDeleting ? 'Deleting...' : 'Delete'}
+        {isDeleting ? 'Deleting...' : 'Delete'}{' '}
       </button>
     </li>
   );
