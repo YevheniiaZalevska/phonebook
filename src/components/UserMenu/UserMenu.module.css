@@ -1,0 +1,46 @@
+.userMenu {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.userMenu span {
+    color: #ecf0f1;
+}
+
+.userMenu button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.userMenu button:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+.userMenu button:active {
+    background-color: #a93226;
+    transform: scale(0.98);
+}
+
+@media (max-width: 768px) {
+    .userMenu {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .userMenu button {
+        width: 100%;
+        text-align: center;
+    }
+}
