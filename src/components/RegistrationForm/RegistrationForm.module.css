@@ -3,7 +3,6 @@
     flex-direction: column;
     gap: 15px;
     padding: 20px;
-    max-width: 400px;
     margin: 30px auto;
     background: #ffffff;
     border-radius: 8px;
@@ -20,13 +19,12 @@
 }
 
 .input {
-    width: 100%;
     padding: 8px 35px 8px 12px;
-    /* Увеличиваем отступ под иконку */
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
     transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    min-width: 250px;
 }
 
 .input:focus {
@@ -49,6 +47,7 @@
     cursor: pointer;
     font-size: 18px;
     color: #555;
+    margin-top: 6px;
 }
 
 .togglePassword:hover {
