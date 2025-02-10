@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Toaster } from 'react-hot-toast'; 
+import { Toaster } from 'react-hot-toast';
 
 import { refreshUser } from './redux/auth/operations';
 import { selectIsRefreshing, selectIsLoggedIn } from './redux/auth/selectors';
@@ -21,6 +21,22 @@ const App = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const [isAppReady, setIsAppReady] = useState(false);
 
+  // 🌓 Состояние темы (из localStorage)
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('theme') || 'light';
+  });
+
+  // 🌓 Устанавливаем тему в body и сохраняем в localStorage
+  useEffect(() => {
+    document.body.className = theme;
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  // 🌓 Функция для переключения темы
+  const toggleTheme = () => {
+    setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
+  };
+
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
@@ -38,7 +54,7 @@ const App = () => {
   return isRefreshing ? null : (
     <>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Layout toggleTheme={toggleTheme} theme={theme} />}>
           <Route index element={<HomePage />} />
           <Route
             path="register"
