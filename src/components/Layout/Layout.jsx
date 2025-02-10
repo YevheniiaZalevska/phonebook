@@ -2,10 +2,10 @@ import { Outlet } from 'react-router-dom';
 import AppBar from '../AppBar/AppBar';
 import s from './Layout.module.css';
 
-const Layout = () => {
+const Layout = ({ toggleTheme, theme }) => {
   return (
     <div className={s.layout}>
-      <AppBar />
+      <AppBar toggleTheme={toggleTheme} theme={theme} />
       <div className={s.mainContent}>
         <Outlet />
       </div>
