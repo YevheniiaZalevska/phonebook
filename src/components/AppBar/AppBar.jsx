@@ -7,7 +7,7 @@ import UserMenu from '../UserMenu/UserMenu';
 import { selectIsLoggedIn } from '../../redux/auth/selectors';
 import s from './AppBar.module.css';
 
-const AppBar = () => {
+const AppBar = ({ toggleTheme, theme }) => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return (
@@ -15,6 +15,12 @@ const AppBar = () => {
       <div className={s.left}>
         <Navigation />
       </div>
+
+      {/* 🌓 Кнопка переключения темы */}
+      <button className={s.themeToggle} onClick={toggleTheme}>
+        {theme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode'}
+      </button>
+
       <div className={s.right}>
         {isLoggedIn ? <UserMenu /> : <AuthNav />}
       </div>
