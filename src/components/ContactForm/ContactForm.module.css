@@ -1,28 +1,30 @@
 .form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
     padding: 20px;
-    background-color: #f8f9fa;
+    margin: 30px auto;
+    background: #ffffff;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    margin: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .label {
     font-size: 14px;
     font-weight: bold;
     color: #333;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .input {
-    width: 100%;
-    padding: 8px;
+    padding: 8px 35px 8px 12px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
     transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    min-width: 250px;
 }
 
 .input:focus {
