@@ -21,18 +21,15 @@ const App = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const [isAppReady, setIsAppReady] = useState(false);
 
-  // 🌓 Состояние темы (из localStorage)
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('theme') || 'light';
   });
 
-  // 🌓 Устанавливаем тему в body и сохраняем в localStorage
   useEffect(() => {
     document.body.className = theme;
     localStorage.setItem('theme', theme);
   }, [theme]);
 
-  // 🌓 Функция для переключения темы
   const toggleTheme = () => {
     setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
   };
