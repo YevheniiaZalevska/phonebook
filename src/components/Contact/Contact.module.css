@@ -3,15 +3,11 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 15px;
-    background-color: #f8f9fa;
+    background: var(--cont-bg);
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin-bottom: 10px;
     transition: background-color 0.3s ease-in-out;
-}
-
-.item:hover {
-    background-color: #e9ecef;
 }
 
 .details {
@@ -22,7 +18,7 @@
 
 .icon {
     margin-right: 8px;
-    color: #3498db;
+    color: #01243b;
 }
 
 .name,
@@ -33,7 +29,7 @@
 }
 
 .deleteBtn {
-    background-color: #e74c3c;
+    background-color: #ed3d29;
     color: white;
     border: none;
     padding: 8px 12px;
@@ -59,14 +55,3 @@
     cursor: not-allowed;
 }
 
-@media (max-width: 768px) {
-    .item {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .deleteBtn {
-        align-self: flex-end;
-        margin-top: 8px;
-    }
-}

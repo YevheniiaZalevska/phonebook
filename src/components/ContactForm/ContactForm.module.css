@@ -4,7 +4,7 @@
     gap: 15px;
     padding: 20px;
     margin: 30px auto;
-    background: #ffffff;
+    background: var(--cont-bg);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -28,19 +28,19 @@
 }
 
 .input:focus {
-    border-color: #3498db;
-    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+    border-color: #ffffff;
+    box-shadow: 0 0 5px rgba(74, 76, 77, 0.5);
     outline: none;
 }
 
 .error {
-    color: #e74c3c;
+    color: #ff1b02;
     font-size: 12px;
     margin-top: -5px;
 }
 
 .submitBtn {
-    background-color: #2ecc71;
+    background-color: var(--button-bg);
     color: white;
     border: none;
     padding: 10px;
@@ -52,12 +52,11 @@
 }
 
 .submitBtn:hover {
-    background-color: #27ae60;
+    background-color: var(--button-hover);
     transform: scale(1.05);
 }
 
 .submitBtn:active {
-    background-color: #1e8449;
     transform: scale(0.98);
 }
 
