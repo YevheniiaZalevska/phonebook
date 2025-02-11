@@ -46,19 +46,23 @@ body {
 }
 
 :root {
-  --background-color: #f9f9f9;
-  --text-color: #333;
-  --nav-bg: #ffffff;
-  --button-bg: #e0e0e0;
-  --button-text: #000;
+  --background-color: #f3e9dc;
+  --text-color: #c08552;
+  --nav-bg: #e0c4a0;
+  --button-bg: #b6885d;
+  --button-hover: #73411f;
+  --cont-bg: #ffffff;
+  --theme: #f9e4ce;
 }
 
 body.dark {
-  --background-color: #222;
-  --text-color: #fc0000;
-  --nav-bg: #333;
-  --button-bg: #444;
-  --button-text: #fff;
+  --background-color: #4a3f3e;
+  --text-color: #a69d9b;
+  --nav-bg: #392b1c;
+  --button-bg: #303804;
+  --button-hover: #022a16;
+  --cont-bg: #a69d9b;
+  --theme: #62513e;
 }
 
 body {
