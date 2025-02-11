@@ -10,21 +10,21 @@
 .label {
     font-size: 14px;
     font-weight: bold;
-    color: #333;
+    color: #858484;
 }
 
 .input {
     width: 100%;
     padding: 8px 12px;
-    border: 1px solid #ccc;
+    border: 1px solid #ffffff;
     border-radius: 5px;
     font-size: 16px;
     transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .input:focus {
-    border-color: #3498db;
-    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+    border-color: #f9f9f9;
+    box-shadow: 0 0 5px rgba(74, 76, 77, 0.5);
     outline: none;
 }
 
