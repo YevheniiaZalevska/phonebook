@@ -18,7 +18,7 @@ const AppBar = ({ toggleTheme, theme }) => {
 
       {/* 🌓 Кнопка переключения темы */}
       <button className={s.themeToggle} onClick={toggleTheme}>
-        {theme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode'}
+        {theme === 'light' ? '🌙' : '☀️'}
       </button>
 
       <div className={s.right}>
