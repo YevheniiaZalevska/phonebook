@@ -16,7 +16,6 @@ const AppBar = ({ toggleTheme, theme }) => {
         <Navigation />
       </div>
 
-      {/* 🌓 Кнопка переключения темы */}
       <button className={s.themeToggle} onClick={toggleTheme}>
         {theme === 'light' ? '🌙' : '☀️'}
       </button>
