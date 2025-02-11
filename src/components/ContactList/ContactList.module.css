@@ -1,32 +1,9 @@
 .list {
     list-style: none;
     padding: 0;
-    margin: 20px auto;
+    margin: 10px auto;
     max-width: 500px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-}
-
-p {
-    text-align: center;
-    font-size: 16px;
-    font-weight: bold;
-    color: #555;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-5px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.list li {
-    animation: fadeIn 0.3s ease-in-out;
 }
