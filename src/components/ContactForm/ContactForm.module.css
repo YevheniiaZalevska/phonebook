@@ -65,4 +65,16 @@
         width: 90%;
         padding: 15px;
     }
+
+    .input {
+        min-width: 85px;
+    }
+
+    .label {
+        font-size: 12px;
+    }
+
+    .submitBtn {
+        font-size: 14px;
+    }
 }

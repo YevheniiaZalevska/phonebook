@@ -4,6 +4,27 @@
     gap: 15px;
     font-size: 16px;
     font-weight: bold;
+    margin-left: 15px;
+    text-align: end;
+}
+
+@media (max-width: 768px) {
+    .userMenu {
+        align-items: end;
+    }
+}
+
+@media (max-width: 600px) {
+    .userMenu {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 500px) {
+    .userMenu {
+        font-size: 13px;
+        align-items: end;
+    }
 }
 
 .userMenu span {
@@ -20,6 +41,12 @@
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+@media (max-width: 500px) {
+    .userMenu button {
+        font-size: 12px;
+    }
 }
 
 .userMenu button:hover {

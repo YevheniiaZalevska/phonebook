@@ -32,4 +32,8 @@
     .box {
         width: 90%;
     }
+
+    .label {
+        font-size: 13px;
+    }
 }

@@ -102,4 +102,16 @@
         width: 90%;
         padding: 15px;
     }
+
+    .input {
+        min-width: 100px;
+    }
+    
+    .label {
+        font-size: 12px;
+    }
+
+    .button {
+        font-size: 14px;
+    }
 }
