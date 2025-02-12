@@ -4,7 +4,7 @@ import s from './AuthNav.module.css';
 
 const AuthNav = () => {
   return (
-    <div>
+    <div className={s.container}>
       <NavLink to="/register" className={s.authButton}>
         Register
       </NavLink>
