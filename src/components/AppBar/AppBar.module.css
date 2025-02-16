@@ -24,10 +24,12 @@
     cursor: pointer;
     padding: 5px 15px;
     margin: 0 auto;
+    transition: transform 0.3s ease-in-out;
 }
 
 .themeToggle:hover {
     background: var(--button-hover);
+    transform: scale(1.1);
 }
 
 @media (max-width: 630px) {
