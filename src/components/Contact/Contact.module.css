@@ -7,29 +7,32 @@
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin-bottom: 10px;
-    transition: background-color 0.3s ease-in-out;
+    transition: transform 0.2s ease-in-out;
+}
+
+.item:hover {
+    transform: scale(1.02);
 }
 
 .details {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    color: rgb(27, 26, 26);
 }
 
-.icon {
+.details svg {
     margin-right: 8px;
-    color: #01243b;
+    color: rgb(35, 35, 35);
 }
 
-.name,
-.number {
-    font-size: 16px;
-    font-weight: 500;
-    color: #333;
+.btns {
+    display: flex;
+    gap: 5px;
 }
 
+.editBtn,
 .deleteBtn {
-    background-color: #ed3d29;
     color: white;
     border: none;
     padding: 8px 12px;
@@ -38,6 +41,18 @@
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.editBtn {
+    background-color: #bebdbd;
+}
+
+.editBtn:hover {
+    background-color: #737272;
+}
+
+.deleteBtn {
+    background-color: #ed3d29;
 }
 
 .deleteBtn:hover {

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchContacts, addContact, deleteContact } from './operations';
+import { fetchContacts, addContact, deleteContact, editContact } from './operations'; 
 import { logout } from '../auth/operations'; 
 
 const initialState = {
@@ -15,48 +15,23 @@ const contactsSlice = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder
-      .addCase(fetchContacts.pending, state => {
-        state.isLoading = true;
-        state.error = null;
-      })
       .addCase(fetchContacts.fulfilled, (state, action) => {
         state.isLoading = false;
         state.items = action.payload;
       })
-      .addCase(fetchContacts.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload || 'Failed to load contacts';
-      })
-      .addCase(addContact.pending, state => {
-        state.isLoading = true;
-        state.error = null;
-      })
       .addCase(addContact.fulfilled, (state, action) => {
-        state.isLoading = false;
         state.items.push(action.payload);
       })
-      .addCase(addContact.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload || 'Failed to add contact';
-      })
-      .addCase(deleteContact.pending, (state, action) => {
-        state.deletingIds.push(action.meta.arg);
-      })
       .addCase(deleteContact.fulfilled, (state, action) => {
-        state.items = state.items.filter(
-          contact => contact.id !== action.payload
-        );
-        state.deletingIds = state.deletingIds.filter(
-          id => id !== action.meta.arg
-        );
+        state.items = state.items.filter(contact => contact.id !== action.payload);
       })
-      .addCase(deleteContact.rejected, (state, action) => {
-        state.deletingIds = state.deletingIds.filter(
-          id => id !== action.meta.arg
-        );
-        state.error = action.payload || 'Failed to delete contact';
+      .addCase(editContact.fulfilled, (state, action) => {
+        const index = state.items.findIndex(contact => contact.id === action.payload.id);
+        if (index !== -1) {
+          state.items[index] = action.payload; 
+        }
       })
-      .addCase(logout.fulfilled, () => initialState); 
+      .addCase(logout.fulfilled, () => initialState);
   },
 });
 

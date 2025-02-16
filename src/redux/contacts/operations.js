@@ -56,3 +56,21 @@ export const deleteContact = createAsyncThunk(
     }
   }
 );
+
+export const editContact = createAsyncThunk(
+  'contacts/editContact',
+  async ({ id, updatedContact }, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState();
+      const token = state.auth.token;
+      if (!token) throw new Error('No token found');
+
+      const response = await axios.patch(`/contacts/${id}`, updatedContact, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      return response.data; 
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
