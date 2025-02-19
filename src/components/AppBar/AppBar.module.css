@@ -17,23 +17,25 @@
 }
 
 .themeToggle {
+    background: none;
     border: none;
-    border-radius: 50px;
-    border-color: aliceblue;
-    background-color: var(--button-bg);
     cursor: pointer;
-    padding: 5px 15px;
-    margin: 0 auto;
-    transition: transform 0.3s ease-in-out;
+    font-size: 22px;
+    color: white;
+    transition: color 0.3s ease;
 }
 
 .themeToggle:hover {
-    background: var(--button-hover);
-    transform: scale(1.1);
+    color: #ff8000;
 }
 
-@media (max-width: 630px) {
+/* .themeToggle:hover {
+    background: var(--button-hover);
+    transform: scale(1.1);
+} */
+
+/* @media (max-width: 630px) {
     .themeToggle {
         padding: 5px 5px;
     }
-}
+} */
