@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from '../../redux/contacts/operations';
 import { selectContacts, selectError } from '../../redux/contacts/selectors';
 
+import { FaUserPlus } from 'react-icons/fa'; // 👤 Иконка добавления пользователя
 import styles from './ContactForm.module.css';
 
 const ContactForm = () => {
@@ -23,9 +24,7 @@ const ContactForm = () => {
         .max(50, 'Name must be less than 50 characters')
         .required('Name is required'),
       number: Yup.string()
-        .matches(/^\d+$/, 'Phone number must contain only digits')
-        .min(7, 'Phone number must be at least 7 digits')
-        .max(15, 'Phone number must be less than 15 digits')
+        .matches(/^\d{3}-\d{3}-\d{4}$/, 'Enter in format: 000-000-0000')
         .required('Phone number is required'),
     }),
     onSubmit: (values, { resetForm }) => {
@@ -45,9 +44,7 @@ const ContactForm = () => {
 
   return (
     <form onSubmit={formik.handleSubmit} className={styles.form}>
-      <label htmlFor="name" className={styles.label}>
-        Name
-      </label>
+      <label htmlFor="name" className={styles.label}>Name</label>
       <input
         id="name"
         name="name"
@@ -58,12 +55,11 @@ const ContactForm = () => {
         onBlur={formik.handleBlur}
         autoComplete="name"
       />
-      {formik.touched.name && formik.errors.name ? (
+      {formik.touched.name && formik.errors.name && (
         <div className={styles.error}>{formik.errors.name}</div>
-      ) : null}
-      <label htmlFor="number" className={styles.label}>
-        Number
-      </label>
+      )}
+
+      <label htmlFor="number" className={styles.label}>Number</label>
       <input
         id="number"
         name="number"
@@ -73,13 +69,16 @@ const ContactForm = () => {
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
         autoComplete="tel"
+        placeholder="000-000-0000"
       />
-      {formik.touched.number && formik.errors.number ? (
+      {formik.touched.number && formik.errors.number && (
         <div className={styles.error}>{formik.errors.number}</div>
-      ) : null}
-      {error && <div className={styles.error}>Error: {error}</div>}{' '}
+      )}
+
+      {error && <div className={styles.error}>Error: {error}</div>}
+
       <button type="submit" className={styles.submitBtn}>
-        Add Contact
+        Add Contact <FaUserPlus className={styles.icon} />
       </button>
     </form>
   );

@@ -1,80 +1,69 @@
 .form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
+    background: #161b30;
     padding: 20px;
-    margin: 30px auto;
-    background: var(--cont-bg);
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 102, 255, 0.4);
 }
 
 .label {
-    font-size: 14px;
+    color: white;
+    font-size: 16px;
     font-weight: bold;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
 }
 
+/* Поле ввода */
 .input {
-    padding: 8px 35px 8px 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: #202640;
+    color: white;
     font-size: 16px;
-    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    min-width: 250px;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+.input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .input:focus {
-    border-color: #ffffff;
-    box-shadow: 0 0 5px rgba(74, 76, 77, 0.5);
-    outline: none;
+    border-color: orange;
 }
 
+/* Ошибка */
 .error {
-    color: #ff1b02;
-    font-size: 12px;
-    margin-top: -5px;
+    color: red;
+    font-size: 14px;
 }
 
+/* Кнопка */
 .submitBtn {
-    background-color: var(--button-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: black;
     color: white;
+    padding: 12px;
     border: none;
-    padding: 10px;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
 .submitBtn:hover {
-    background-color: var(--button-hover);
-    transform: scale(1.05);
+    background: #0056b3;
 }
 
-.submitBtn:active {
-    transform: scale(0.98);
-}
-
-@media (max-width: 480px) {
-    .form {
-        width: 90%;
-        padding: 15px;
-    }
-
-    .input {
-        min-width: 85px;
-    }
-
-    .label {
-        font-size: 12px;
-    }
-
-    .submitBtn {
-        font-size: 14px;
-    }
+/* Иконка */
+.icon {
+    font-size: 18px;
 }
