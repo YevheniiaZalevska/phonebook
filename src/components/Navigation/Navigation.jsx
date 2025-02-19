@@ -1,9 +1,9 @@
-import { NavLink } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
+import { FiHome, FiUser } from 'react-icons/fi';  
 import s from './Navigation.module.css';
 
 const Navigation = () => {
-  const location = useLocation(); 
+  const location = useLocation();
 
   return (
     <nav className={s.nav}>
@@ -11,13 +11,13 @@ const Navigation = () => {
         to="/"
         className={`${s.link} ${location.pathname === '/' ? s.active : ''}`}
       >
-        Home
+        <FiHome className={s.icon} />
       </NavLink>
       <NavLink
         to="/contacts"
         className={`${s.link} ${location.pathname === '/contacts' ? s.active : ''}`}
       >
-        Contacts
+        <FiUser className={s.icon} />  
       </NavLink>
     </nav>
   );
