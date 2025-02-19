@@ -65,3 +65,32 @@
         gap: 10px;
     }
 }
+
+.userMenu {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.welcomeText {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.logoutButton {
+    background: none;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.logoutButton:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.logoutButton .icon {
+    font-size: 20px;
+    color: white;
+}
