@@ -1,72 +1,106 @@
 .item {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 15px;
-    background: var(--cont-bg);
+    flex-direction: column;
+    background: white;
+    padding: 10px;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 10px;
-    transition: transform 0.2s ease-in-out;
-}
-
-.item:hover {
-    transform: scale(1.02);
 }
 
 .details {
     display: flex;
-    flex-direction: column;
-    gap: 5px;
-    color: rgb(27, 26, 26);
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
-.details svg {
+.icon {
     margin-right: 8px;
-    color: rgb(35, 35, 35);
 }
 
-.btns {
+.name,
+.number {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Кнопки */
+.buttons {
     display: flex;
-    gap: 5px;
+    gap: 10px;
 }
 
 .editBtn,
-.deleteBtn {
-    color: white;
+.deleteBtn,
+.saveBtn,
+.cancelBtn {
+    padding: 6px 12px;
     border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    font-size: 14px;
-    font-weight: bold;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    font-size: 14px;
+    transition: background-color 0.3s ease-in-out;
 }
 
+/* Кнопка Edit */
 .editBtn {
-    background-color: #bebdbd;
+    background-color: #f0ad4e;
+    color: white;
 }
 
 .editBtn:hover {
-    background-color: #737272;
+    background-color: #ec971f;
 }
 
+/* Кнопка Delete */
 .deleteBtn {
-    background-color: #ed3d29;
+    background-color: #d9534f;
+    color: white;
 }
 
 .deleteBtn:hover {
-    background-color: #c0392b;
-    transform: scale(1.05);
+    background-color: #c9302c;
 }
 
-.deleteBtn:active {
-    background-color: #a93226;
-    transform: scale(0.98);
+/* Кнопка Save */
+.saveBtn {
+    background-color: #5cb85c;
+    color: white;
 }
 
-.deleteBtn:disabled {
-    background-color: #bdc3c7;
-    cursor: not-allowed;
+.saveBtn:hover {
+    background-color: #4cae4c;
 }
 
+/* Кнопка Cancel */
+.cancelBtn {
+    background-color: #6c757d;
+    color: white;
+}
+
+.cancelBtn:hover {
+    background-color: #5a6268;
+}
+
+/* Контейнер для режима редактирования */
+.editContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Поля ввода */
+.input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
