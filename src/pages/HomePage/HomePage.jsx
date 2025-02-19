@@ -1,10 +1,16 @@
 import { useState, useEffect } from 'react';
-import { FiBookOpen } from 'react-icons/fi'; 
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectIsLoggedIn } from '../../redux/auth/selectors';
+import { FiBookOpen } from 'react-icons/fi'; // 📌 Иконка книги
 import s from './HomePage.module.css';
 
 const HomePage = () => {
-  const fullText = "Manage your contacts with our app! Keep all your contacts in one place. Create, edit, and delete contacts anytime, anywhere.";
-  const [displayedText, setDisplayedText] = useState("");
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const fullText =
+    'Manage your contacts with our app! Keep all your contacts in one place. Create, edit, and delete contacts anytime, anywhere.';
+
+  const [displayedText, setDisplayedText] = useState('');
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -12,7 +18,7 @@ const HomePage = () => {
       const timeout = setTimeout(() => {
         setDisplayedText((prev) => prev + fullText[index]);
         setIndex(index + 1);
-      }, 50); 
+      }, 50);
       return () => clearTimeout(timeout);
     }
   }, [index, fullText]);
@@ -22,9 +28,26 @@ const HomePage = () => {
       <h1 className={s.title}>
         <FiBookOpen className={s.icon} /> Welcome to the Phonebook App
       </h1>
+
+      {/* Описание приложения */}
       <div className={s.descriptionBox}>
         <p className={s.typing}>{displayedText}</p>
       </div>
+
+      {/* Блок входа - только для НЕавторизованных пользователей */}
+      {!isLoggedIn && (
+        <div className={s.loginBox}>
+          <p>Please log in to your account or sign up if you are a new user</p>
+          <div className={s.buttonGroup}>
+            <Link to="/login" className={s.button}>
+              LOG IN
+            </Link>
+            <Link to="/register" className={s.button}>
+              SIGN UP
+            </Link>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
