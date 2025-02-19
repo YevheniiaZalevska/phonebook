@@ -1,112 +1,90 @@
-/* @import '../RegistrationForm/RegistrationForm.module.css'; */
-
-
 .form {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    padding: 20px;
-    margin: 30px auto;
-    background: var(--cont-bg);
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: #161b30;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 102, 255, 0.4);
+    max-width: 400px;
+    margin: auto;
 }
 
 .label {
-    font-size: 14px;
-    font-weight: bold;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.input {
-    padding: 8px 35px 8px 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    color: white;
     font-size: 16px;
-    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    min-width: 250px;
+    font-weight: bold;
 }
 
-.input:focus {
-    border-color: #ffffff;
-    box-shadow: 0 0 5px rgba(74, 76, 77, 0.5);
-    outline: none;
-}
-
-.passwordWrapper {
-    position: relative;
+/* Обёртка для инпутов */
+/* .inputWrapper {
     display: flex;
     align-items: center;
+    background: #202640;
+    border-radius: 8px;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: border 0.3s ease;
+} */
+
+.inputWrapper:focus-within {
+    border-color: orange;
 }
 
+/* Иконки */
+.icon {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+/* Поле ввода */
+
+
+/* Ошибка */
+.error {
+    color: red;
+    font-size: 14px;
+}
+
+/* Кнопка показать/скрыть пароль */
 .togglePassword {
-    position: absolute;
-    right: 10px;
     background: none;
     border: none;
+    color: white;
     cursor: pointer;
     font-size: 18px;
-    color: #333;
-    margin-top: 6px;
 }
 
-.togglePassword:hover {
-    color: #808984;
-}
-
-.error {
-    color: #ff1b02;
-    font-size: 12px;
-    margin-top: -5px;
-}
-
+/* Кнопка входа */
 .button {
-    background-color: var(--button-bg);
-    color: #fff;
+    background: black;
+    color: white;
+    padding: 12px;
     border: none;
-    padding: 10px;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
 .button:hover {
-    background-color: var(--button-hover);
-    transform: scale(1.05);
+    background: #0056b3;
 }
 
-.button:active {
-    transform: scale(0.98);
-}
-
+/* Ссылка */
 .link {
     text-align: center;
-    font-size: 14px;
-    color: #555;
+    color: white;
 }
 
 .link a {
-    color: #333;
+    color: orange;
     text-decoration: none;
-    font-weight: bold;
 }
 
 .link a:hover {
     text-decoration: underline;
-}
-
-@media (max-width: 480px) {
-    .form {
-        width: 90%;
-        padding: 15px;
-    }
-
-    .input {
-        min-width: 100px;
-    }
 }
