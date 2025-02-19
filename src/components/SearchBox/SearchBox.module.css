@@ -1,39 +1,41 @@
-.box {
+.searchContainer {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    margin: 20px auto;
-    max-width: 400px;
-}
-
-.label {
-    font-size: 14px;
+    align-items: flex-start;
+    background: #161b30;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 102, 255, 0.4);
+    font-size: 18px;
+    color: white;
     font-weight: bold;
-    color: #858484;
+    margin-top: 10px;
 }
 
+/* Иконка поиска */
+.searchIcon {
+    font-size: 22px;
+    color: white;
+    margin-bottom: 5px;
+}
+
+/* Поле ввода */
 .input {
     width: 100%;
-    padding: 8px 12px;
-    border: 1px solid #ffffff;
-    border-radius: 5px;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: #202640;
+    color: white;
     font-size: 16px;
-    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+.input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .input:focus {
-    border-color: #f9f9f9;
-    box-shadow: 0 0 5px rgba(74, 76, 77, 0.5);
-    outline: none;
-}
-
-@media (max-width: 480px) {
-    .box {
-        width: 90%;
-    }
-
-    .label {
-        font-size: 13px;
-    }
+    border-color: orange;
 }
