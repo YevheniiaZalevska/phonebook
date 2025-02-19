@@ -42,3 +42,10 @@ h2 {
 .error {
     color: #e74c3c;
 }
+
+.counter {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--text-color, #333);
+    margin-bottom: 10px;
+}
