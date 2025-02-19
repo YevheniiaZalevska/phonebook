@@ -8,13 +8,14 @@ import SearchBox from '../../components/SearchBox/SearchBox';
 import { fetchContacts } from '../../redux/contacts/operations';
 import { selectIsLoading, selectError, selectTotalContacts } from '../../redux/contacts/selectors';
 
+import { FaAddressBook } from 'react-icons/fa'; // 📌 Иконка контактов
 import s from './ContactsPage.module.css';
 
 const ContactsPage = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
-  const totalContacts = useSelector(selectTotalContacts); 
+  const totalContacts = useSelector(selectTotalContacts);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -24,7 +25,13 @@ const ContactsPage = () => {
     <div className={s.container}>
       <h1>Phonebook</h1>
       <ContactForm />
-      <h2 className={s.counter}>Total Contacts: {totalContacts}</h2> 
+
+      {/* 🔥 Карточка с количеством контактов */}
+      <div className={s.counterBox}>
+        <FaAddressBook className={s.icon} />
+        <span>Now you have saved contacts: <strong>{totalContacts}</strong></span>
+      </div>
+
       <SearchBox />
       {isLoading ? (
         <p className={s.loader}>Loading... Please wait a little</p>

@@ -49,3 +49,30 @@ h2 {
     color: var(--text-color, #333);
     margin-bottom: 10px;
 }
+
+
+
+/* Карточка с количеством контактов */
+.counterBox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #161b30;
+    padding: 12px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 102, 255, 0.3);
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+}
+
+.icon {
+    font-size: 24px;
+    color: white;
+}
+
+/* Подсветка */
+.counterBox strong {
+    font-size: 20px;
+    color: #ffffff;
+}
