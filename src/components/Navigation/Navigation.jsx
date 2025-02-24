@@ -1,12 +1,12 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectIsLoggedIn } from '../../redux/auth/selectors';
-import { FiHome, FiUser } from 'react-icons/fi'; // 📌 Используем FiUser для "Contacts"
+import { FiHome, FiUser } from 'react-icons/fi'; 
 import s from './Navigation.module.css';
 
 const Navigation = () => {
   const location = useLocation();
-  const isLoggedIn = useSelector(selectIsLoggedIn); // ✅ Проверка на авторизацию
+  const isLoggedIn = useSelector(selectIsLoggedIn); 
 
   return (
     <nav className={s.nav}>
@@ -17,7 +17,6 @@ const Navigation = () => {
         <FiHome className={s.icon} />
       </NavLink>
       
-      {/* 🔥 "Contacts" отображается ТОЛЬКО если юзер вошел */}
       {isLoggedIn && (
         <NavLink
           to="/contacts"

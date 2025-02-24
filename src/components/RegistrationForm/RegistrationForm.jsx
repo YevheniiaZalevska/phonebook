@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 import { register } from '../../redux/auth/operations';
 
-import { FaEye, FaEyeSlash } from 'react-icons/fa'; 
+import { FaEye, FaEyeSlash, FaUser, FaEnvelope, FaLock } from 'react-icons/fa'; 
 import s from './RegistrationForm.module.css';
 
 const registrationSchema = Yup.object().shape({
@@ -34,22 +34,33 @@ const RegistrationForm = () => {
       <Form className={s.form}>
         <label className={s.label}>
           Name:
-          <Field className={s.input} type="text" name="name" />
+          <div className={s.inputWrapper}>
+            <FaUser className={s.icon} />
+            <Field className={s.input} type="text" name="name" placeholder="Enter your name" />
+          </div>
           <ErrorMessage className={s.error} name="name" component="div" />
         </label>
+
+        {/* Email Field */}
         <label className={s.label}>
           Email:
-          <Field className={s.input} type="email" name="email" autoComplete="email" />
+          <div className={s.inputWrapper}>
+            <FaEnvelope className={s.icon} />
+            <Field className={s.input} type="email" name="email" autoComplete="email" placeholder="Enter your email" />
+          </div>
           <ErrorMessage className={s.error} name="email" component="div" />
         </label>
+
         <label className={s.label}>
           Password:
-          <div className={s.passwordWrapper}>
+          <div className={s.inputWrapper}>
+            <FaLock className={s.icon} />
             <Field
               className={s.input}
               type={showPassword ? 'text' : 'password'}
               name="password"
               autoComplete="current-password"
+              placeholder="Enter your password"
             />
             <button
               type="button"
@@ -61,12 +72,13 @@ const RegistrationForm = () => {
           </div>
           <ErrorMessage className={s.error} name="password" component="div" />
         </label>
+
         <button className={s.button} type="submit">
           Register
         </button>
 
         <p className={s.link}>
-          Already have an account? <Link to="/login">Log in here</Link>.
+          Already have an account? <Link to="/login">Log in here.</Link>
         </p>
       </Form>
     </Formik>

@@ -7,7 +7,7 @@ import { login } from '../../redux/auth/operations';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 
-import { FaEye, FaEyeSlash, FaEnvelope, FaLock } from 'react-icons/fa'; // 🔥 Иконки
+import { FaEye, FaEyeSlash, FaEnvelope, FaLock } from 'react-icons/fa'; 
 import s from './LoginForm.module.css';
 
 const loginSchema = Yup.object().shape({
@@ -36,7 +36,7 @@ const LoginForm = () => {
         <label className={s.label}>
           Email:
           <div className={s.inputWrapper}>
-            <FaEnvelope className={s.icon} /> {/* 📧 Иконка почты */}
+            <FaEnvelope className={s.icon} /> 
             <Field className={s.input} type="email" name="email" autoComplete="email" />
           </div>
           <ErrorMessage className={s.error} name="email" component="div" />
@@ -45,7 +45,7 @@ const LoginForm = () => {
         <label className={s.label}>
           Password:
           <div className={s.inputWrapper}>
-            <FaLock className={s.icon} /> {/* 🔒 Иконка пароля */}
+            <FaLock className={s.icon} /> 
             <Field
               className={s.input}
               type={showPassword ? 'text' : 'password'}
