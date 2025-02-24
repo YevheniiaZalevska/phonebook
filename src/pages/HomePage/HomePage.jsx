@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectIsLoggedIn } from '../../redux/auth/selectors';
-import { FiBookOpen } from 'react-icons/fi'; // 📌 Иконка книги
+import { FiBookOpen } from 'react-icons/fi'; 
 import s from './HomePage.module.css';
 
 const HomePage = () => {
@@ -29,15 +29,13 @@ const HomePage = () => {
         <FiBookOpen className={s.icon} /> Welcome to the Phonebook App
       </h1>
 
-      {/* Описание приложения */}
       <div className={s.descriptionBox}>
         <p className={s.typing}>{displayedText}</p>
       </div>
 
-      {/* Блок входа - только для НЕавторизованных пользователей */}
       {!isLoggedIn && (
         <div className={s.loginBox}>
-          <p>Please log in to your account or sign up if you are a new user</p>
+          <p className={s.logAcc}>Please log in to your account or sign up if you are a new user</p>
           <div className={s.buttonGroup}>
             <Link to="/login" className={s.button}>
               LOG IN

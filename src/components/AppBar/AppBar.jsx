@@ -13,6 +13,7 @@ const AppBar = ({ toggleTheme, theme }) => {
 
   return (
     <header className={s.header}>
+     <div className={s.content}>
       <div className={s.left}>
         <Navigation />
       </div>
@@ -23,6 +24,7 @@ const AppBar = ({ toggleTheme, theme }) => {
 
       <div className={s.right}>
         {isLoggedIn ? <UserMenu /> : <AuthNav />}
+        </div>
       </div>
     </header>
   );
