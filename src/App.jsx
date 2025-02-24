@@ -22,7 +22,7 @@ const App = () => {
   const [isAppReady, setIsAppReady] = useState(false);
 
   const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('theme') || 'light';
+    return localStorage.getItem('theme') || 'dark';
   });
 
   useEffect(() => {
