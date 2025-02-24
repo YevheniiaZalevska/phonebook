@@ -1,75 +1,32 @@
 .userMenu {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 15px;
-    font-size: 16px;
     font-weight: bold;
     margin-left: 15px;
     text-align: end;
+    max-width: 300px;
 }
 
 @media (max-width: 768px) {
     .userMenu {
-        align-items: end;
+        padding: 20px;
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 550px) {
     .userMenu {
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 500px) {
-    .userMenu {
-        font-size: 13px;
+        display: flex;
+        flex-direction: column;
         align-items: end;
+        justify-content: center;
+        padding: 0px;
     }
 }
 
 .userMenu span {
    color: var(--text-color);
-}
-
-.userMenu button {
-    background-color: #ed3d29;
-    color: white;
-    border: none;
-    padding: 5px 5px;
-    border-radius: 5px;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
-}
-
-@media (max-width: 500px) {
-    .userMenu button {
-        font-size: 12px;
-    }
-}
-
-.userMenu button:hover {
-    background-color: #c0392b;
-    transform: scale(1.05);
-}
-
-.userMenu button:active {
-    background-color: #a93226;
-    transform: scale(0.98);
-}
-
-@media (max-width: 768px) {
-    .userMenu {
-        flex-direction: column;
-        gap: 10px;
-    }
-}
-
-.userMenu {
-    display: flex;
-    align-items: center;
-    gap: 15px;
 }
 
 .welcomeText {
@@ -79,7 +36,7 @@
 
 .logoutButton {
     background: none;
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    border: 2px solid white;
     padding: 8px 12px;
     border-radius: 6px;
     transition: all 0.3s ease;
@@ -87,10 +44,14 @@
 }
 
 .logoutButton:hover {
-    background: rgba(255, 255, 255, 0.1);
+   border-color: var(--button-hover);
 }
 
 .logoutButton .icon {
     font-size: 20px;
     color: white;
+}
+
+.logoutButton .icon:hover {
+    color: var(--text-color);
 }

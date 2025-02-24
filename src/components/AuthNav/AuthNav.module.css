@@ -1,22 +1,36 @@
 .authButton {
-    display: inline-block;
-    padding: 8px 8px;
-    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 20px;
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 6px;
     font-size: 16px;
     font-weight: bold;
-    color: var(--text-color);
-    border-radius: 5px;
-    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
-    border: none;
+    text-transform: uppercase;
+    color: white;
+    background: none;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+@media (max-width: 450px) {
+    .authButton {
+        font-size: 13px;
+        padding: 10px 13px;
+    }
 }
 
 .authButton:hover {  
-    background-color: rgba(255, 255, 255, 0.2);
-    transform: scale(1.05);
+    border-color: var(--button-hover);
+    color: var(--button-hover);
 }
 
-.authButton:active {
-    background-color: rgba(255, 255, 255, 0.4);
+.activeButton {
+    border-color: var(--button-hover);
+    color: var(--button-hover);
 }
 
 .container{
@@ -26,19 +40,8 @@
 }
 
 @media (max-width: 768px) {
-    .authButton {
-        display: block;
-        text-align: center;
-        margin: 2px auto;
-        font-size: 15px;
-        padding: 4px;
-    }
-} 
-
-@media (max-width: 450px) {
-    .authButton {
-        font-size: 13px;
+    .container {
+        display: flex;
+        flex-direction: column;
     }
 }
-
-

@@ -46,23 +46,25 @@ body {
 }
 
 :root {
-  --background-color: #f3e9dc;
-  --text-color: #c08552;
-  --nav-bg: #e0c4a0;
-  --button-bg: #b6885d;
-  --button-hover: #73411f;
-  --cont-bg: #ffffff;
-  --theme: #f9e4ce;
+  --background-color: #9BC1BC;
+  --text-color: #1b7003;
+  --nav-bg: #9BC1BC;
+  --button-bg: #9BC1BC;
+  --button-hover: #1b7003;
+  --cont-bg: #3d9375;
+  --box-shadow: rgb(80, 190, 102);
+  --text-shadow: rgb(101, 184, 37);
 }
 
 body.dark {
-  --background-color: #4a3f3e;
-  --text-color: #a69d9b;
-  --nav-bg: #392b1c;
-  --button-bg: #303804;
-  --button-hover: #022a16;
-  --cont-bg: #a69d9b;
-  --theme: #62513e;
+  --background-color: #21164d;
+  --text-color: #ff8000;
+  --nav-bg: #21164d;
+  --button-bg: #21164d;
+  --button-hover: #ff8000;
+  --cont-bg: #10033b;
+  --box-shadow: rgb(50, 75, 198);
+  --text-shadow: rgb(237, 88, 14);
 }
 
 body {

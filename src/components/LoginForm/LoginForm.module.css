@@ -2,86 +2,96 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
-    background: #161b30;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0, 102, 255, 0.4);
+    background: var(--cont-bg);
+    padding: 30px;
+    border-radius: 10px;
     max-width: 400px;
-    margin: auto;
+    margin: 0 auto;
 }
 
 .label {
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
 }
 
-/* Обёртка для инпутов */
-/* .inputWrapper {
+.inputWrapper {
+    position: relative;
     display: flex;
     align-items: center;
-    background: #202640;
-    border-radius: 8px;
-    padding: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    transition: border 0.3s ease;
-} */
-
-.inputWrapper:focus-within {
-    border-color: orange;
 }
 
-/* Иконки */
 .icon {
-    color: rgba(255, 255, 255, 0.6);
+    position: absolute;
+    left: 15px;
     font-size: 18px;
-    margin-right: 10px;
+    color: var(--text-color);
 }
 
-/* Поле ввода */
+.input {
+    width: 100%;
+    padding: 12px 45px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    background-color: white;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
 
+.input:focus {
+    border-color: var(--text-color);
+    outline: none;
+}
 
-/* Ошибка */
 .error {
-    color: red;
-    font-size: 14px;
+    color: #c40a0a;
+    font-size: 12px;
+    margin-top: 5px;
 }
 
-/* Кнопка показать/скрыть пароль */
 .togglePassword {
+    position: absolute;
+    right: 15px;
     background: none;
     border: none;
-    color: white;
     cursor: pointer;
     font-size: 18px;
+    color: #000000;
 }
 
-/* Кнопка входа */
+.togglePassword:hover {
+    color: var(--button-hover);
+}
+
 .button {
-    background: black;
-    color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid var(--button-hover);
+    border-radius: 6px;
     font-size: 16px;
     font-weight: bold;
-    cursor: pointer;
+    text-transform: uppercase;
+    color: var(--button-hover);
+    background: none;
     transition: all 0.3s ease;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    text-decoration: none;
 }
 
 .button:hover {
-    background: #0056b3;
-}
-
-/* Ссылка */
-.link {
-    text-align: center;
+    background: var(--text-color);
     color: white;
 }
 
+.link {
+    text-align: center;
+    font-size: 14px;
+    color: #ffffff;
+}
+
 .link a {
-    color: orange;
+    color: var(--text-color);
+    font-weight: bold;
     text-decoration: none;
 }
 
