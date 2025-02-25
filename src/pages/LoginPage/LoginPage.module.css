@@ -1,8 +1,10 @@
 .contH2 {
-    font-size: 24px;
-    font-weight: bold;
+    text-align: center;
     color: var(--text-color);
     margin-bottom: 20px;
+    font-size: 27px;
+    font-weight: bold;
+    text-shadow: 2px 2px 10px var(--text-shadow);
 }
 
 @keyframes fadeIn {

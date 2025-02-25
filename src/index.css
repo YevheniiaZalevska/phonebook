@@ -46,14 +46,14 @@ body {
 }
 
 :root {
-  --background-color: #9BC1BC;
-  --text-color: #1b7003;
-  --nav-bg: #9BC1BC;
-  --button-bg: #9BC1BC;
-  --button-hover: #1b7003;
-  --cont-bg: #3d9375;
-  --box-shadow: rgb(80, 190, 102);
-  --text-shadow: rgb(101, 184, 37);
+  --background-color: #00798c;
+  --text-color: #610746;
+  --nav-bg: #00798c;
+  --button-bg: #00798c;
+  --button-hover: #610746;
+  --cont-bg: #3b6282;
+  --box-shadow: rgb(80, 10, 113);
+  --text-shadow: rgb(199, 17, 199);
 }
 
 body.dark {

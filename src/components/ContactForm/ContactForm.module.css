@@ -1,69 +1,70 @@
 .form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    background: #161b30;
-    padding: 20px;
+    gap: 8px;
+    background: var(--cont-bg);
+    padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 102, 255, 0.4);
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 .label {
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
 }
 
-/* Поле ввода */
 .input {
-    width: 100%;
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    background: #202640;
-    color: white;
+    padding: 8px 10px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    background-color: white;
+    color: rgb(0, 0, 0);
     font-size: 16px;
-    outline: none;
-    transition: border 0.3s ease;
-}
-
-.input::placeholder {
-    color: rgba(255, 255, 255, 0.5);
+    transition: border-color 0.3s ease;
 }
 
 .input:focus {
-    border-color: orange;
+    border-color: var(--text-color);
+    outline: none;
 }
 
-/* Ошибка */
+.input::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+}
+
 .error {
-    color: red;
-    font-size: 14px;
+    color: #922525;
+    font-size: 12px;
+    margin-top: 0px;
 }
 
-/* Кнопка */
 .submitBtn {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    background: black;
-    color: white;
+    background: none;
+    color: var(--button-hover);
     padding: 12px;
-    border: none;
-    border-radius: 8px;
+    border: 2px solid var(--button-hover);
+    border-radius: 6px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
+    text-transform: uppercase;
     transition: all 0.3s ease;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+    margin-top: 10px;
 }
+
 
 .submitBtn:hover {
-    background: #0056b3;
+    background: var(--text-color);
+    color: white;
 }
 
-/* Иконка */
 .icon {
     font-size: 18px;
 }

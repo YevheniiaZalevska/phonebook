@@ -2,40 +2,39 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background: #161b30;
+    background: var(--cont-bg);
     padding: 15px 20px;
     border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 102, 255, 0.4);
     font-size: 18px;
-    color: white;
+    color: var(--text-color);
     font-weight: bold;
     margin-top: 10px;
 }
 
-/* Иконка поиска */
 .searchIcon {
-    font-size: 22px;
-    color: white;
-    margin-bottom: 5px;
+    font-size: 20px;
+    color: var(--text-color);
+    margin-bottom: 10px;
 }
 
-/* Поле ввода */
 .input {
-    width: 100%;
-    padding: 12px;
-    border-radius: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    background: #202640;
-    color: white;
+    padding: 8px 10px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    background-color: white;
+    color: rgb(0, 0, 0);
     font-size: 16px;
-    outline: none;
-    transition: border 0.3s ease;
-}
-
-.input::placeholder {
-    color: rgba(255, 255, 255, 0.5);
+    transition: border-color 0.3s ease;
+    margin-top: 10px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .input:focus {
-    border-color: orange;
+    border-color: var(--text-color);
+    outline: none;
+}
+
+.input::placeholder {
+    color: rgba(0, 0, 0, 0.5);
 }

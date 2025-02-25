@@ -1,31 +1,16 @@
 .container {
     max-width: 800px;
-    margin: 20px auto;
     padding: 20px;
     background-color: var(--background-color);
 }
 
-h1,
-h2 {
+.title {
     text-align: center;
     color: var(--text-color);
     margin-bottom: 20px;
-}
-
-h1 {
-    font-size: 25px;
+    font-size: 27px;
     font-weight: bold;
-}
-
-h2 {
-    font-size: 25px;
-    font-weight: 600;
-}
-
-@media (max-width: 650px) {
-    h1, h2 {
-        font-size: 20px;
-    }
+    text-shadow: 2px 2px 10px var(--text-shadow);
 }
 
 .loader,
@@ -36,43 +21,32 @@ h2 {
 }
 
 .loader {
-    color: #3498db;
+    color: #000000;
 }
 
 .error {
-    color: #e74c3c;
+    color: #922525;
 }
 
-.counter {
-    font-size: 18px;
-    font-weight: bold;
-    color: var(--text-color, #333);
-    margin-bottom: 10px;
-}
-
-
-
-/* Карточка с количеством контактов */
 .counterBox {
     display: flex;
     align-items: center;
     gap: 12px;
-    background: #161b30;
+    background: var(--cont-bg);
     padding: 12px 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 102, 255, 0.3);
     font-size: 18px;
-    color: white;
+    color: var(--text-color);
     font-weight: bold;
+    margin-top: 10px;
 }
 
 .icon {
     font-size: 24px;
-    color: white;
+    color: var(--text-color);
 }
 
-/* Подсветка */
 .counterBox strong {
     font-size: 20px;
-    color: #ffffff;
+    color: white;
 }
