@@ -23,8 +23,10 @@ const ContactForm = () => {
         .min(3, 'Name must be at least 3 characters')
         .max(50, 'Name must be less than 50 characters')
         .required('Name is required'),
-      number: Yup.string()
-        .matches(/^\d{3}-\d{3}-\d{4}$/, 'Enter in format: 000-000-0000')
+       number: Yup.string()
+        .matches(/^\d+$/, 'Phone number must contain only digits') // Разрешает только цифры
+        .min(9, 'Phone number must be at least 9 digits')
+        .max(15, 'Phone number must be less than 15 digits')
         .required('Phone number is required'),
     }),
     onSubmit: (values, { resetForm }) => {
@@ -69,7 +71,7 @@ const ContactForm = () => {
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
         autoComplete="tel"
-        placeholder="000-000-0000"
+        placeholder="000000000"
       />
       {formik.touched.number && formik.errors.number && (
         <div className={styles.error}>{formik.errors.number}</div>

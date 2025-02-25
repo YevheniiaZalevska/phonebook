@@ -22,27 +22,28 @@ const Contact = ({ id, name, number }) => {
   return (
     <li className={s.item}>
       {isEditing ? (
-        <div className={s.editContainer}>
+        <div className={s.container}>
           <input className={s.input} type="text" value={newName} onChange={(e) => setNewName(e.target.value)} />
           <input className={s.input} type="text" value={newNumber} onChange={(e) => setNewNumber(e.target.value)} />
           <div className={s.buttons}>
-            <button className={s.saveBtn} onClick={handleSave}>Save</button>
-            <button className={s.cancelBtn} onClick={() => setIsEditing(false)}>Cancel</button>
+            <button className={s.saveBtn} onClick={handleSave}>SAVE</button>
+            <button className={s.cancelBtn} onClick={() => setIsEditing(false)}>CANCEL</button>
           </div>
         </div>
       ) : (
-        <>
+        <div className={s.container}>
           <div className={s.details}>
             <div className={s.info}>
               <span className={s.icon}><FaUser /></span>
-              <span className={s.name}>{name}</span>
+              <div className={s.nameContainer}>
+                <span className={name.length > 12 ? s.scrollingText : ''}>{name}</span>
+              </div>
             </div>
             <div className={s.info}>
               <span className={s.icon}><FaPhoneAlt /></span>
               <span className={s.number}>{number}</span>
             </div>
           </div>
-          {/* Показываем кнопки только если НЕ редактируем */}
           {!isEditing && (
             <div className={s.buttons}>
               <button className={s.editBtn} onClick={() => setIsEditing(true)}>
@@ -51,10 +52,11 @@ const Contact = ({ id, name, number }) => {
               <button className={s.deleteBtn} onClick={() => dispatch(deleteContact(id))}>DELETE</button>
             </div>
           )}
-        </>
+        </div>
       )}
     </li>
   );
 };
 
 export default Contact;
+

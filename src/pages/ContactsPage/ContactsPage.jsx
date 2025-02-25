@@ -23,7 +23,7 @@ const ContactsPage = () => {
 
   return (
     <div className={s.container}>
-      <h1>Phonebook</h1>
+      <h1 className={s.title}>Phonebook</h1>
       <ContactForm />
 
       {/* 🔥 Карточка с количеством контактов */}
