@@ -8,7 +8,7 @@ import SearchBox from '../../components/SearchBox/SearchBox';
 import { fetchContacts } from '../../redux/contacts/operations';
 import { selectIsLoading, selectError, selectTotalContacts } from '../../redux/contacts/selectors';
 
-import { FaAddressBook } from 'react-icons/fa'; // 📌 Иконка контактов
+import { FaAddressBook } from 'react-icons/fa'; 
 import s from './ContactsPage.module.css';
 
 const ContactsPage = () => {
@@ -26,7 +26,6 @@ const ContactsPage = () => {
       <h1 className={s.title}>Phonebook</h1>
       <ContactForm />
 
-      {/* 🔥 Карточка с количеством контактов */}
       <div className={s.counterBox}>
         <FaAddressBook className={s.icon} />
         <span>Now you have saved contacts: <strong>{totalContacts}</strong></span>

@@ -108,7 +108,6 @@
 .nameContainer {
     display: inline-block;
     max-width: 150px;
-    /* Укажите подходящую ширину */
     overflow: hidden;
     white-space: nowrap;
     position: relative;

@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from '../../redux/contacts/operations';
 import { selectContacts, selectError } from '../../redux/contacts/selectors';
 
-import { FaUserPlus } from 'react-icons/fa'; // 👤 Иконка добавления пользователя
+import { FaUserPlus } from 'react-icons/fa'; 
 import styles from './ContactForm.module.css';
 
 const ContactForm = () => {
@@ -24,7 +24,7 @@ const ContactForm = () => {
         .max(50, 'Name must be less than 50 characters')
         .required('Name is required'),
        number: Yup.string()
-        .matches(/^\d+$/, 'Phone number must contain only digits') // Разрешает только цифры
+        .matches(/^\d+$/, 'Phone number must contain only digits') 
         .min(9, 'Phone number must be at least 9 digits')
         .max(15, 'Phone number must be less than 15 digits')
         .required('Phone number is required'),

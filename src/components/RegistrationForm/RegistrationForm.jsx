@@ -41,7 +41,6 @@ const RegistrationForm = () => {
           <ErrorMessage className={s.error} name="name" component="div" />
         </label>
 
-        {/* Email Field */}
         <label className={s.label}>
           Email:
           <div className={s.inputWrapper}>
